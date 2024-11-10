@@ -1,0 +1,21 @@
+services:
+  database:
+    image: postgres:14.5-alpine3.16
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: heloir
+      POSTGRES_USER: heloir
+    ports:
+      - "5432:5432"
+    volumes:
+      - heloir:/var/lib/postgresql/data
+    networks:
+      - backend
+    container_name: heloir-database
+
+volumes:
+  heloir:
+
+networks:
+  backend:
+  frontend:
