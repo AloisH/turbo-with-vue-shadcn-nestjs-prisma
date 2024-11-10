@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
-import { PrismaService, UserService } from '@heloir/backend-database';
+import { DatabaseModule } from '@heloir/backend-database';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 @Module({
-  imports: [],
+  imports: [DatabaseModule],
   controllers: [AppController],
-  providers: [PrismaService, AppService, UserService],
+  providers: [AppService],
 })
 export class AppModule {}
