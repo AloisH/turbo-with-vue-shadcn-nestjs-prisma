@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
+import { PrismaService, UserService } from '@heloir/backend-database';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { PrismaService, UserService } from '@heloir/backend-database';
 
 @Module({
   imports: [],
