@@ -1,5 +1,5 @@
 {
-  "name": "@heloir/backend-database",
+  "name": "@heloir/frontend-administration-api",
   "version": "0.0.0",
   "private": true,
   "main": "./index.ts",

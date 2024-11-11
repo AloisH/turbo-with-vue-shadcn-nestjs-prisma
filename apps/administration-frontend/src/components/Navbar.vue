@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import axios from "axios";
+import {
+  WorkspaceService,
+  type WorkspaceDto,
+} from "@heloir/frontend-administration-api";
 import { Avatar, AvatarFallback, AvatarImage } from "@heloir/ui/avatar";
 import {
   Breadcrumb,
@@ -44,19 +49,16 @@ import {
   SidebarTrigger,
 } from "@heloir/ui/sidebar";
 import {
-  AudioWaveform,
   BadgeCheck,
   Bell,
   BookOpen,
   Bot,
   ChevronRight,
   ChevronsUpDown,
-  Command,
   CreditCard,
   Folder,
   Forward,
   Frame,
-  GalleryVerticalEnd,
   LogOut,
   Map,
   MoreHorizontal,
@@ -67,32 +69,17 @@ import {
   SquareTerminal,
   Trash2,
 } from "lucide-vue-next";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+
+const workspaces = ref<WorkspaceDto[]>([]);
 
 // This is sample data.
-const data = {
+const data = ref({
   user: {
     name: "shadcn",
     email: "m@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
-  teams: [
-    {
-      name: "Acme Inc",
-      logo: GalleryVerticalEnd,
-      plan: "Enterprise",
-    },
-    {
-      name: "Acme Corp.",
-      logo: AudioWaveform,
-      plan: "Startup",
-    },
-    {
-      name: "Evil Corp.",
-      logo: Command,
-      plan: "Free",
-    },
-  ],
   navMain: [
     {
       title: "Playground",
@@ -166,7 +153,7 @@ const data = {
           url: "#",
         },
         {
-          title: "Team",
+          title: "Workspace",
           url: "#",
         },
         {
@@ -197,12 +184,24 @@ const data = {
       icon: Map,
     },
   ],
-};
+});
 
-const activeTeam = ref(data.teams[0]);
+const workspaceService = new WorkspaceService(
+  axios.create({
+    baseURL: "http://localhost:62002",
+  })
+);
 
-function setActiveTeam(team: (typeof data.teams)[number]) {
-  activeTeam.value = team;
+onMounted(async () => {
+  const { data } = await workspaceService.getWorkspaces();
+  workspaces.value = data;
+  activeWorkspace.value = data[0];
+});
+
+const activeWorkspace = ref<WorkspaceDto>();
+
+function setWorkspace(workspace: WorkspaceDto) {
+  activeWorkspace.value = workspace;
 }
 </script>
 
@@ -221,13 +220,15 @@ function setActiveTeam(team: (typeof data.teams)[number]) {
                   <div
                     class="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground"
                   >
-                    <component :is="activeTeam.logo" class="size-4" />
+                    <BadgeCheck></BadgeCheck>
                   </div>
                   <div class="grid flex-1 text-left text-sm leading-tight">
                     <span class="truncate font-semibold">{{
-                      activeTeam.name
+                      activeWorkspace?.name
                     }}</span>
-                    <span class="truncate text-xs">{{ activeTeam.plan }}</span>
+                    <span class="truncate text-xs">{{
+                      activeWorkspace?.name
+                    }}</span>
                   </div>
                   <ChevronsUpDown class="ml-auto" />
                 </SidebarMenuButton>
@@ -239,20 +240,20 @@ function setActiveTeam(team: (typeof data.teams)[number]) {
                 :side-offset="4"
               >
                 <DropdownMenuLabel class="text-xs text-muted-foreground">
-                  Teams
+                  Workspaces
                 </DropdownMenuLabel>
                 <DropdownMenuItem
-                  v-for="(team, index) in data.teams"
-                  :key="team.name"
+                  v-for="(workspace, index) in workspaces"
+                  :key="workspace.name"
                   class="gap-2 p-2"
-                  @click="setActiveTeam(team)"
+                  @click="setWorkspace(workspace)"
                 >
                   <div
                     class="flex size-6 items-center justify-center rounded-sm border"
                   >
-                    <component :is="team.logo" class="size-4 shrink-0" />
+                    <BadgeCheck></BadgeCheck>
                   </div>
-                  {{ team.name }}
+                  {{ workspace.name }}
                   <DropdownMenuShortcut>⌘{{ index + 1 }}</DropdownMenuShortcut>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
@@ -262,7 +263,9 @@ function setActiveTeam(team: (typeof data.teams)[number]) {
                   >
                     <Plus class="size-4" />
                   </div>
-                  <div class="font-medium text-muted-foreground">Add team</div>
+                  <div class="font-medium text-muted-foreground">
+                    Add Workspace
+                  </div>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -464,6 +467,7 @@ function setActiveTeam(team: (typeof data.teams)[number]) {
         </div>
       </header>
       <div class="flex flex-1 flex-col gap-4 p-4 pt-0">
+        <div>Hello world <input type="color" /></div>
         <div class="grid auto-rows-min gap-4 md:grid-cols-3">
           <div class="aspect-video rounded-xl bg-muted/50" />
           <div class="aspect-video rounded-xl bg-muted/50" />
