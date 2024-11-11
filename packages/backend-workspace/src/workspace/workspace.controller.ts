@@ -18,7 +18,7 @@ export class WorkspaceController {
   public async getWorkspaces(): Promise<WorkspaceDto[]> {
     return plainToInstance(
       WorkspaceDto,
-      await this.workspaceService.getWorkspaces()
+      await this.workspaceService.getWorkspaces(),
     );
   }
 
@@ -28,11 +28,11 @@ export class WorkspaceController {
     type: WorkspaceDto,
   })
   public async createWorkspace(
-    @Body() createWorkspaceDto: CreateWorkspaceDto
+    @Body() createWorkspaceDto: CreateWorkspaceDto,
   ): Promise<WorkspaceDto> {
     return plainToInstance(
       WorkspaceDto,
-      await this.workspaceService.createWorkspace(createWorkspaceDto)
+      await this.workspaceService.createWorkspace(createWorkspaceDto),
     );
   }
 }

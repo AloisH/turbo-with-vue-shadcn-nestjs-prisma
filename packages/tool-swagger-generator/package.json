@@ -1,0 +1,20 @@
+{
+  "name": "swagger-generator",
+  "version": "1.0.0",
+  "scripts": {
+    "main": "npx ts-node ./src/index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "prettier": "^3.3.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@nestjs/swagger": "^7.3.1",
+    "axios": "^1.7.2"
+  }
+}

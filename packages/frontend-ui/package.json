@@ -98,6 +98,7 @@
     "@heloir/eslint-config": "workspace:*",
     "@heloir/tailwind-config": "workspace:*",
     "@heloir/typescript-config": "workspace:*",
+    "@tsconfig/node18": "^18.2.4",
     "autoprefixer": "^10.4.20",
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.30.0",
