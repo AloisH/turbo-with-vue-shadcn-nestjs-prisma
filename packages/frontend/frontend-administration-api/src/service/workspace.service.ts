@@ -20,4 +20,11 @@ export class WorkspaceService {
       data,
     });
   }
+
+  public deleteWorkspace(id: string) {
+    return this.axios.request<any>({
+      method: `delete`,
+      url: `${this.baseUrl}/${id}`,
+    });
+  }
 }

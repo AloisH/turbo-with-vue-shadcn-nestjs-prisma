@@ -1,3 +1,5 @@
 {
-  "extends": "@heloir/typescript-config/vue.json"
+  "extends": "@heloir/typescript-config/vue.json",
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "exclude": ["src/**/__tests__/*"]
 }
