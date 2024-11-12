@@ -1,4 +1,7 @@
 {
   "extends": "@heloir/typescript-config/nest.json",
-  "include": ["src"]
+  "include": ["src"],
+  "compilerOptions": {
+    "outDir": "./dist"
+  }
 }

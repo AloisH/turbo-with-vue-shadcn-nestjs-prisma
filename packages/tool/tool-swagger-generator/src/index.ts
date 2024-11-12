@@ -10,17 +10,19 @@ async function main() {
   const swagger = await swaggerGetter.getSwagger();
   const swaggerTypeGenerator = new SwaggerTypeGenerator(
     swagger,
-    "./../frontend-administration-api/src/dto",
+    "./../../frontend/frontend-administration-api/src/dto",
   );
   swaggerTypeGenerator.generate();
   const swaggerServiceGenerator = new SwaggerServiceGenerator(
     swagger,
-    "./../frontend-administration-api/src/service",
+    "./../../frontend/frontend-administration-api/src/service",
     "../dto",
   );
   swaggerServiceGenerator.generate();
 
-  const cleanUp = new CleanUp(["./../frontend-administration-api/src"]);
+  const cleanUp = new CleanUp([
+    "./../../frontend/frontend-administration-api/src",
+  ]);
   cleanUp.cleanUp();
 }
 
