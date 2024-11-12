@@ -8,7 +8,7 @@ export class WorkspaceService {
   constructor(private readonly workspaceRepository: WorkspaceRepository) {}
 
   public async createWorkspace(
-    createWorkspaceInput: CreateWorkspaceDto
+    createWorkspaceInput: CreateWorkspaceDto,
   ): Promise<WorkspaceDto> {
     const workspace = await this.workspaceRepository.workspace({
       name: createWorkspaceInput.name,
@@ -19,7 +19,7 @@ export class WorkspaceService {
           message: "Workspace already exists",
           error: "WorkspaceAlreadyExists",
         },
-        400
+        400,
       );
     }
 

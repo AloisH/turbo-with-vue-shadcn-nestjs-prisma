@@ -7,7 +7,7 @@ export class WorkspaceRepository {
   constructor(private readonly prisma: PrismaService) {}
 
   async workspace(
-    workspaceWhereUniqueInput: Prisma.WorkspaceWhereUniqueInput
+    workspaceWhereUniqueInput: Prisma.WorkspaceWhereUniqueInput,
   ): Promise<Workspace | null> {
     return this.prisma.workspace.findUnique({
       where: workspaceWhereUniqueInput,
@@ -49,7 +49,7 @@ export class WorkspaceRepository {
   }
 
   async deleteWorkspace(
-    where: Prisma.WorkspaceWhereUniqueInput
+    where: Prisma.WorkspaceWhereUniqueInput,
   ): Promise<Workspace> {
     return this.prisma.workspace.delete({
       where,
