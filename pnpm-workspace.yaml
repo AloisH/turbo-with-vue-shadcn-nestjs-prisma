@@ -1,9 +1,7 @@
 packages:
   - "apps/*"
   - "packages/backend/*"
-  - "packages/config-eslint"
-  - "packages/config-typescript"
-  - "packages/config-tailwind"
+  - "packages/config/*"
   - "packages/frontend-ui"
   - "packages/frontend-administration-api"
   - "packages/tool-swagger-generator"

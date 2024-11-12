@@ -50,7 +50,7 @@ importers:
     devDependencies:
       '@heloir/typescript-config':
         specifier: workspace:*
-        version: link:../../packages/config-typescript
+        version: link:../../packages/config/config-typescript
       '@nestjs/cli':
         specifier: ^10.4.7
         version: 10.4.7
@@ -177,13 +177,13 @@ importers:
     devDependencies:
       '@heloir/eslint-config':
         specifier: workspace:*
-        version: link:../../packages/config-eslint
+        version: link:../../packages/config/config-eslint
       '@heloir/frontend-administration-api':
         specifier: workspace:*
         version: link:../../packages/frontend-administration-api
       '@heloir/typescript-config':
         specifier: workspace:*
-        version: link:../../packages/config-typescript
+        version: link:../../packages/config/config-typescript
       '@rushstack/eslint-patch':
         specifier: ^1.10.4
         version: 1.10.4
@@ -241,10 +241,10 @@ importers:
     devDependencies:
       '@heloir/eslint-config':
         specifier: workspace:*
-        version: link:../../config-eslint
+        version: link:../../config/config-eslint
       '@heloir/typescript-config':
         specifier: workspace:*
-        version: link:../../config-typescript
+        version: link:../../config/config-typescript
       '@types/node':
         specifier: ^22.9.0
         version: 22.9.0
@@ -287,10 +287,10 @@ importers:
     devDependencies:
       '@heloir/eslint-config':
         specifier: workspace:*
-        version: link:../../config-eslint
+        version: link:../../config/config-eslint
       '@heloir/typescript-config':
         specifier: workspace:*
-        version: link:../../config-typescript
+        version: link:../../config/config-typescript
       '@types/node':
         specifier: ^22.9.0
         version: 22.9.0
@@ -301,7 +301,7 @@ importers:
         specifier: ^5.6.3
         version: 5.6.3
 
-  packages/config-eslint:
+  packages/config/config-eslint:
     devDependencies:
       '@vercel/style-guide':
         specifier: 6.0.0
@@ -316,7 +316,7 @@ importers:
         specifier: 5.6.3
         version: 5.6.3
 
-  packages/config-tailwind:
+  packages/config/config-tailwind:
     dependencies:
       tailwindcss-animate:
         specifier: ^1.0.7
@@ -329,7 +329,7 @@ importers:
         specifier: ^3.4.14
         version: 3.4.14(ts-node@10.9.2(@types/node@22.9.0)(typescript@5.6.3))
 
-  packages/config-typescript:
+  packages/config/config-typescript:
     devDependencies:
       '@vue/tsconfig':
         specifier: ^0.5.1
@@ -343,10 +343,10 @@ importers:
     devDependencies:
       '@heloir/eslint-config':
         specifier: workspace:*
-        version: link:../config-eslint
+        version: link:../config/config-eslint
       '@heloir/typescript-config':
         specifier: workspace:*
-        version: link:../config-typescript
+        version: link:../config/config-typescript
       '@tsconfig/node18':
         specifier: ^18.2.4
         version: 18.2.4
@@ -419,13 +419,13 @@ importers:
     devDependencies:
       '@heloir/eslint-config':
         specifier: workspace:*
-        version: link:../config-eslint
+        version: link:../config/config-eslint
       '@heloir/tailwind-config':
         specifier: workspace:*
-        version: link:../config-tailwind
+        version: link:../config/config-tailwind
       '@heloir/typescript-config':
         specifier: workspace:*
-        version: link:../config-typescript
+        version: link:../config/config-typescript
       '@tsconfig/node18':
         specifier: ^18.2.4
         version: 18.2.4
