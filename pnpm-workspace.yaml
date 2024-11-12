@@ -3,4 +3,4 @@ packages:
   - "packages/backend/*"
   - "packages/config/*"
   - "packages/frontend/*"
-  - "packages/tool-swagger-generator"
+  - "packages/tool/*"

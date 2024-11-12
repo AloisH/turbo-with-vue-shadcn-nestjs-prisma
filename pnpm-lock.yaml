@@ -451,7 +451,7 @@ importers:
         specifier: ^2.1.10
         version: 2.1.10(typescript@5.6.3)
 
-  packages/tool-swagger-generator:
+  packages/tool/tool-swagger-generator:
     dependencies:
       '@nestjs/swagger':
         specifier: ^7.3.1
