@@ -119,7 +119,7 @@ importers:
     dependencies:
       '@heloir/ui':
         specifier: workspace:*
-        version: link:../../packages/frontend-ui
+        version: link:../../packages/frontend/frontend-ui
       '@unovis/ts':
         specifier: 1.5.0-beta.0
         version: 1.5.0-beta.0
@@ -180,7 +180,7 @@ importers:
         version: link:../../packages/config/config-eslint
       '@heloir/frontend-administration-api':
         specifier: workspace:*
-        version: link:../../packages/frontend-administration-api
+        version: link:../../packages/frontend/frontend-administration-api
       '@heloir/typescript-config':
         specifier: workspace:*
         version: link:../../packages/config/config-typescript
@@ -335,7 +335,7 @@ importers:
         specifier: ^0.5.1
         version: 0.5.1
 
-  packages/frontend-administration-api:
+  packages/frontend/frontend-administration-api:
     dependencies:
       axios:
         specifier: ^1.7.2
@@ -343,10 +343,10 @@ importers:
     devDependencies:
       '@heloir/eslint-config':
         specifier: workspace:*
-        version: link:../config/config-eslint
+        version: link:../../config/config-eslint
       '@heloir/typescript-config':
         specifier: workspace:*
-        version: link:../config/config-typescript
+        version: link:../../config/config-typescript
       '@tsconfig/node18':
         specifier: ^18.2.4
         version: 18.2.4
@@ -360,7 +360,7 @@ importers:
         specifier: ^5.6.3
         version: 5.6.3
 
-  packages/frontend-ui:
+  packages/frontend/frontend-ui:
     dependencies:
       '@internationalized/date':
         specifier: ^3.5.6
@@ -419,13 +419,13 @@ importers:
     devDependencies:
       '@heloir/eslint-config':
         specifier: workspace:*
-        version: link:../config/config-eslint
+        version: link:../../config/config-eslint
       '@heloir/tailwind-config':
         specifier: workspace:*
-        version: link:../config/config-tailwind
+        version: link:../../config/config-tailwind
       '@heloir/typescript-config':
         specifier: workspace:*
-        version: link:../config/config-typescript
+        version: link:../../config/config-typescript
       '@tsconfig/node18':
         specifier: ^18.2.4
         version: 18.2.4
