@@ -1,12 +1,6 @@
 {
   "extends": "@heloir/typescript-config/vue.json",
-  "include": [
-    "env.d.ts",
-    "src/**/*",
-    "src/**/*.vue",
-    "../../packages/ui/src/ui",
-    "../../packages/ui/src/lib"
-  ],
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
     "composite": true,
