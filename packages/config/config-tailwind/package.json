@@ -1,0 +1,13 @@
+{
+  "name": "@heloir/config-tailwind",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "tailwind-merge": "^2.5.4",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@heloir/typescript-config": "workspace:*",
+    "tailwindcss": "^3.4.14"
+  }
+}

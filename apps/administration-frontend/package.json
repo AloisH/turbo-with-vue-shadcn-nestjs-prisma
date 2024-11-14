@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "@heloir/eslint-config": "workspace:*",
+    "@heloir/config-tailwind": "workspace:*",
     "@heloir/frontend-administration-api": "workspace:*",
     "@heloir/typescript-config": "workspace:*",
     "@rushstack/eslint-patch": "^1.10.4",

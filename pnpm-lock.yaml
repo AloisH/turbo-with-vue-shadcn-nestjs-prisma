@@ -175,6 +175,9 @@ importers:
         specifier: ^3.23.8
         version: 3.23.8
     devDependencies:
+      '@heloir/config-tailwind':
+        specifier: workspace:*
+        version: link:../../packages/config/config-tailwind
       '@heloir/eslint-config':
         specifier: workspace:*
         version: link:../../packages/config/config-eslint
@@ -316,6 +319,22 @@ importers:
         specifier: 5.6.3
         version: 5.6.3
 
+  packages/config/config-tailwind:
+    dependencies:
+      tailwind-merge:
+        specifier: ^2.5.4
+        version: 2.5.4
+      tailwindcss-animate:
+        specifier: ^1.0.7
+        version: 1.0.7(tailwindcss@3.4.14(ts-node@10.9.2(@types/node@22.9.0)(typescript@5.6.3)))
+    devDependencies:
+      '@heloir/typescript-config':
+        specifier: workspace:*
+        version: link:../config-typescript
+      tailwindcss:
+        specifier: ^3.4.14
+        version: 3.4.14(ts-node@10.9.2(@types/node@22.9.0)(typescript@5.6.3))
+
   packages/config/config-typescript:
     devDependencies:
       '@vue/tsconfig':
@@ -404,6 +423,9 @@ importers:
         specifier: ^3.23.8
         version: 3.23.8
     devDependencies:
+      '@heloir/config-tailwind':
+        specifier: workspace:*
+        version: link:../../config/config-tailwind
       '@heloir/eslint-config':
         specifier: workspace:*
         version: link:../../config/config-eslint
