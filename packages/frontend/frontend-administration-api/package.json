@@ -5,7 +5,7 @@
   "main": "./index.ts",
   "types": "./index.ts",
   "scripts": {
-    "lint": "eslint **/*.ts --fix"
+    "lint": "eslint . --fix"
   },
   "devDependencies": {
     "@heloir/eslint-config": "workspace:*",

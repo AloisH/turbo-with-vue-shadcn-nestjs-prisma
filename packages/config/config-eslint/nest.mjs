@@ -9,7 +9,18 @@ const __dirname = path.dirname(__filename); // get the name of the directory
 
 export default [
   {
-    ignores: ["**/eslint.config.js"],
+    name: "app/files-to-lint",
+    files: ["**/*.{ts}"],
+  },
+  {
+    name: "app/files-to-ignore",
+    ignores: [
+      "**/dist/**",
+      "**/dist-ssr/**",
+      "**/coverage/**",
+      "***/node_modules/**",
+      "eslint.config.mjs",
+    ],
   },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
@@ -27,14 +38,5 @@ export default [
         tsconfigRootDir: __dirname,
       },
     },
-  },
-  {
-    ignores: [
-      "**/eslint.config.js",
-      "node_modules",
-      "dist",
-      "public",
-      "eslint.config.mjs",
-    ],
   },
 ];

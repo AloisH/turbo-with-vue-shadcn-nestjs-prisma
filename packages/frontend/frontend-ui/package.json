@@ -70,7 +70,7 @@
   },
   "scripts": {
     "build": "tailwindcss -i ./src/styles.css -o ./dist/index.css",
-    "lint": "eslint **/*.ts **/*.vue --fix",
+    "lint": "eslint . --fix",
     "dev": "tailwindcss -i ./src/styles.css -o ./dist/index.css --watch",
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false"
   },

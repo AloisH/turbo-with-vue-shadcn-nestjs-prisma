@@ -8,7 +8,7 @@
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
-    "lint": "eslint **/*.ts **/*.vue --fix"
+    "lint": "eslint . --fix"
   },
   "dependencies": {
     "@heloir/ui": "workspace:*",
