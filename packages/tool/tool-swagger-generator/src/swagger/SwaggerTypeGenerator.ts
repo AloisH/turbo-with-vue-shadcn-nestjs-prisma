@@ -6,7 +6,7 @@ import { mkdirSync, existsSync, writeFileSync } from "fs";
 export class SwaggerTypeGenerator implements ISwaggerTypeGenerator {
   constructor(
     private readonly swagger: OpenAPIObject,
-    private readonly dtoPath: string,
+    private readonly dtoPath: string
   ) {}
 
   generate(): void {
@@ -17,7 +17,7 @@ export class SwaggerTypeGenerator implements ISwaggerTypeGenerator {
 
     const fileGenerated = [];
     for (const [key, value] of Object.entries(
-      this.swagger.components?.schemas ?? {},
+      this.swagger.components?.schemas ?? {}
     )) {
       const schema = new SchemaObjectToTypescriptType(value);
       const objectType = schema.convertToObjectType();
@@ -25,7 +25,7 @@ export class SwaggerTypeGenerator implements ISwaggerTypeGenerator {
 
       const exportedType = `export type ${key} = ${type}`;
       const importType = objectType.externalType.map(
-        (val) => `import type { ${val} } from './${val}.dto.ts';`,
+        (val) => `import type { ${val} } from './${val}.dto.ts';`
       );
       const result = `${importType.join("\n")}\n\n${exportedType}`;
 

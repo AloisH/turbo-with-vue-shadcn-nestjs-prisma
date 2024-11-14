@@ -4,6 +4,9 @@
   "private": true,
   "main": "./index.ts",
   "types": "./index.ts",
+  "scripts": {
+    "lint": "eslint **/*.ts --fix"
+  },
   "devDependencies": {
     "@heloir/eslint-config": "workspace:*",
     "@heloir/typescript-config": "workspace:*",

@@ -22,7 +22,7 @@ export class WorkspaceService {
   }
 
   public deleteWorkspace(id: string) {
-    return this.axios.request<any>({
+    return this.axios.request<void>({
       method: `delete`,
       url: `${this.baseUrl}/${id}`,
     });

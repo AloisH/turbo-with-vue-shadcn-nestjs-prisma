@@ -18,14 +18,14 @@ async function bootstrap() {
   app.useGlobalInterceptors(
     new ClassSerializerInterceptor(app.get(Reflector), {
       strategy: "excludeAll",
-    }),
+    })
   );
 
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
       transform: true,
-    }),
+    })
   );
 
   // Swagger configuration
@@ -40,4 +40,6 @@ async function bootstrap() {
 
   await app.listen(process.env.PORT ?? 62002);
 }
-bootstrap();
+bootstrap().catch(() => {
+  throw new Error("Application failed to start");
+});

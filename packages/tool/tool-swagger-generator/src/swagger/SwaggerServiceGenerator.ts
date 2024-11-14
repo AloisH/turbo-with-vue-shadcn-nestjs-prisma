@@ -28,7 +28,7 @@ export class SwaggerServiceGenerator implements ISwaggerServiceGenerator {
   constructor(
     private readonly swagger: OpenAPIObject,
     private readonly servicePath: string,
-    private readonly dtoPath: string
+    private readonly dtoPath: string,
   ) {}
 
   generate(): void {
@@ -48,7 +48,7 @@ export class SwaggerServiceGenerator implements ISwaggerServiceGenerator {
         .toLowerCase();
       writeFileSync(
         `${this.servicePath}/${serviceNameWithoutController}.service.ts`,
-        addImport + serviceClass
+        addImport + serviceClass,
       );
       this.externalType = [];
     }
@@ -96,7 +96,7 @@ export class SwaggerServiceGenerator implements ISwaggerServiceGenerator {
     const result: string[] = [];
     for (const swagMethod of swagMethods) {
       const responseType = this.getResponseTypeFromRequestBody(
-        swagMethod.response
+        swagMethod.response,
       );
       const functionArgs: string[] = [];
       const uriParams = this.getUriParams(swagMethod.pathParams);
@@ -123,7 +123,7 @@ export class SwaggerServiceGenerator implements ISwaggerServiceGenerator {
           HttpMethodName: swagMethod.httpMethod,
           url: this.transformUrlIntoUrlWithParams(swagMethod.path),
           extraParams: extraParams.join(",\n\t"),
-        })
+        }),
       );
     }
     return result;
@@ -131,7 +131,7 @@ export class SwaggerServiceGenerator implements ISwaggerServiceGenerator {
 
   public replaceTemplateValue(
     template: string,
-    replaceItems: { [key: string]: string }
+    replaceItems: { [key: string]: string },
   ) {
     let result = template;
     for (const [key, value] of Object.entries(replaceItems)) {
@@ -141,17 +141,17 @@ export class SwaggerServiceGenerator implements ISwaggerServiceGenerator {
   }
 
   private getResponseTypeFromRequestBody(
-    response: SchemaObject | ReferenceObject | undefined
+    response: SchemaObject | ReferenceObject | undefined,
   ) {
     if (!response) {
       return "void";
     }
 
     const objectType = new SchemaObjectToTypescriptType(
-      response
+      response,
     ).convertToObjectType();
     this.externalType.push(
-      ...SchemaObjectToTypescriptType.isExternalType(objectType.type)
+      ...SchemaObjectToTypescriptType.isExternalType(objectType.type),
     );
     return SchemaObjectToTypescriptType.convertToType(objectType.type);
   }
@@ -181,7 +181,7 @@ export class SwaggerServiceGenerator implements ISwaggerServiceGenerator {
   }
 
   private getUriParams(
-    uriParams: ParameterObject[] | undefined
+    uriParams: ParameterObject[] | undefined,
   ): string[] | undefined {
     if (!uriParams) {
       return undefined;
@@ -193,36 +193,36 @@ export class SwaggerServiceGenerator implements ISwaggerServiceGenerator {
         continue;
       }
       const uriType = new SchemaObjectToTypescriptType(
-        uriParam.schema
+        uriParam.schema,
       ).convertToObjectType();
       this.externalType.push(
-        ...SchemaObjectToTypescriptType.isExternalType(uriType.type)
+        ...SchemaObjectToTypescriptType.isExternalType(uriType.type),
       );
       result.push(
-        `${uriParam.name}: ${SchemaObjectToTypescriptType.convertToType(uriType.type)}`
+        `${uriParam.name}: ${SchemaObjectToTypescriptType.convertToType(uriType.type)}`,
       );
     }
     return result;
   }
 
   private getBodyType(
-    schemaObject: SchemaObject | ReferenceObject | undefined
+    schemaObject: SchemaObject | ReferenceObject | undefined,
   ): string | undefined {
     if (!schemaObject) {
       return undefined;
     }
 
     const bodyType = new SchemaObjectToTypescriptType(
-      schemaObject
+      schemaObject,
     ).convertToObjectType();
     this.externalType.push(
-      ...SchemaObjectToTypescriptType.isExternalType(bodyType.type)
+      ...SchemaObjectToTypescriptType.isExternalType(bodyType.type),
     );
     return SchemaObjectToTypescriptType.convertToType(bodyType.type);
   }
 
   private getQueryParams(
-    queryParams: ParameterObject[] | undefined
+    queryParams: ParameterObject[] | undefined,
   ): string | undefined {
     if (!queryParams) {
       return undefined;
@@ -236,13 +236,13 @@ export class SwaggerServiceGenerator implements ISwaggerServiceGenerator {
       }
 
       const queryParamType = new SchemaObjectToTypescriptType(
-        queryParam.schema
+        queryParam.schema,
       ).convertToObjectType();
       this.externalType.push(
-        ...SchemaObjectToTypescriptType.isExternalType(queryParamType.type)
+        ...SchemaObjectToTypescriptType.isExternalType(queryParamType.type),
       );
       querys.push(
-        `${queryParam.name}${queryParam.required ? "" : "?"}: ${SchemaObjectToTypescriptType.convertToType(queryParamType.type)}`
+        `${queryParam.name}${queryParam.required ? "" : "?"}: ${SchemaObjectToTypescriptType.convertToType(queryParamType.type)}`,
       );
     }
 
