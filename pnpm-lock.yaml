@@ -316,19 +316,6 @@ importers:
         specifier: 5.6.3
         version: 5.6.3
 
-  packages/config/config-tailwind:
-    dependencies:
-      tailwindcss-animate:
-        specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@3.4.14(ts-node@10.9.2(@types/node@22.9.0)(typescript@5.6.3)))
-    devDependencies:
-      '@heloir/typescript-config':
-        specifier: workspace:*
-        version: link:../config-typescript
-      tailwindcss:
-        specifier: ^3.4.14
-        version: 3.4.14(ts-node@10.9.2(@types/node@22.9.0)(typescript@5.6.3))
-
   packages/config/config-typescript:
     devDependencies:
       '@vue/tsconfig':
@@ -420,9 +407,6 @@ importers:
       '@heloir/eslint-config':
         specifier: workspace:*
         version: link:../../config/config-eslint
-      '@heloir/tailwind-config':
-        specifier: workspace:*
-        version: link:../../config/config-tailwind
       '@heloir/typescript-config':
         specifier: workspace:*
         version: link:../../config/config-typescript
