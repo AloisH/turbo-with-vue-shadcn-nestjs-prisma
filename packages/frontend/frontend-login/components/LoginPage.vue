@@ -36,7 +36,7 @@ import { Label } from '@heloir/ui/label'
         </div>
       </div>
     </div>
-    <div class="hidden bg-muted lg:block">
+    <div class="bg-muted lg:block">
       <img
         src="/placeholder.svg"
         alt="Image"
