@@ -50,27 +50,28 @@ import {
 } from "@heloir/ui/sidebar";
 import {
   BadgeCheck,
-  Bell,
   BookOpen,
   Bot,
   ChevronRight,
   ChevronsUpDown,
-  CreditCard,
   Folder,
   Forward,
   Frame,
+  Moon,
   LogOut,
   Map,
   MoreHorizontal,
   PieChart,
   Plus,
   Settings2,
-  Sparkles,
   SquareTerminal,
+  Sun,
   Trash2,
 } from "lucide-vue-next";
 import { onMounted, ref } from "vue";
+import { useColorMode } from "@vueuse/core";
 
+const mode = useColorMode();
 const workspaces = ref<WorkspaceDto[]>([]);
 
 // This is sample data.
@@ -412,24 +413,10 @@ function setWorkspace(workspace: WorkspaceDto) {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                  <DropdownMenuItem>
-                    <Sparkles />
-                    Upgrade to Pro
-                  </DropdownMenuItem>
-                </DropdownMenuGroup>
-                <DropdownMenuSeparator />
-                <DropdownMenuGroup>
-                  <DropdownMenuItem>
-                    <BadgeCheck />
-                    Account
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <CreditCard />
-                    Billing
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <Bell />
-                    Notifications
+                  <DropdownMenuItem @click="mode = mode === 'dark' ? 'light' : 'dark'">
+                    <Sun v-if="mode === 'dark'" />
+                    <Moon v-else />
+                    Toggle Theme
                   </DropdownMenuItem>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
