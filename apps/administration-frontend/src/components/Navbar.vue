@@ -25,7 +25,6 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@heloir/ui/dropdown-menu";
 import { Separator } from "@heloir/ui/separator";
@@ -49,7 +48,6 @@ import {
   SidebarTrigger,
 } from "@heloir/ui/sidebar";
 import {
-  BadgeCheck,
   BookOpen,
   Bot,
   ChevronRight,
@@ -62,14 +60,15 @@ import {
   Map,
   MoreHorizontal,
   PieChart,
-  Plus,
   Settings2,
   SquareTerminal,
   Sun,
   Trash2,
+  Settings,
 } from "lucide-vue-next";
 import { onMounted, ref } from "vue";
 import { useColorMode } from "@vueuse/core";
+import { WorkspacePage } from "@heloir/frontend-workspace";
 
 const mode = useColorMode();
 const workspaces = ref<WorkspaceDto[]>([]);
@@ -218,11 +217,9 @@ function setWorkspace(workspace: WorkspaceDto) {
                   size="lg"
                   class="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                 >
-                  <div
-                    class="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground"
-                  >
-                    <BadgeCheck></BadgeCheck>
-                  </div>
+                  <Avatar class="h-8 w-8 rounded-lg">
+                    <AvatarFallback class="rounded-lg"> {{ activeWorkspace?.name.at(0)?.toUpperCase() }} </AvatarFallback>
+                  </Avatar>
                   <div class="grid flex-1 text-left text-sm leading-tight">
                     <span class="truncate font-semibold">{{
                       activeWorkspace?.name
@@ -244,28 +241,23 @@ function setWorkspace(workspace: WorkspaceDto) {
                   Workspaces
                 </DropdownMenuLabel>
                 <DropdownMenuItem
-                  v-for="(workspace, index) in workspaces"
+                  v-for="workspace in workspaces"
                   :key="workspace.name"
                   class="gap-2 p-2"
                   @click="setWorkspace(workspace)"
                 >
-                  <div
-                    class="flex size-6 items-center justify-center rounded-sm border"
-                  >
-                    <BadgeCheck></BadgeCheck>
-                  </div>
+                  <Avatar class="h-8 w-8 rounded-lg">
+                    <AvatarFallback class="rounded-lg"> {{ workspace.name.at(0)?.toUpperCase() }} </AvatarFallback>
+                  </Avatar>
                   {{ workspace.name }}
-                  <DropdownMenuShortcut>⌘{{ index + 1 }}</DropdownMenuShortcut>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem class="gap-2 p-2">
-                  <div
-                    class="flex size-6 items-center justify-center rounded-md border bg-background"
-                  >
-                    <Plus class="size-4" />
+                  <div class="flex size-6 items-center justify-center rounded-md border bg-background">
+                    <Settings class="size-4" />
                   </div>
                   <div class="font-medium text-muted-foreground">
-                    Add Workspace
+                    Edit Workspace
                   </div>
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -455,6 +447,7 @@ function setWorkspace(workspace: WorkspaceDto) {
       </header>
       <div class="flex flex-1 flex-col gap-4 p-4 pt-0">
         <div>Hello world <input type="color" /></div>
+        <WorkspacePage></WorkspacePage>
         <div class="grid auto-rows-min gap-4 md:grid-cols-3">
           <div class="aspect-video rounded-xl bg-muted/50" />
           <div class="aspect-video rounded-xl bg-muted/50" />

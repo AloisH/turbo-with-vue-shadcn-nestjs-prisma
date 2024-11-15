@@ -120,6 +120,9 @@ importers:
 
   apps/administration-frontend:
     dependencies:
+      '@heloir/frontend-workspace':
+        specifier: workspace:*
+        version: link:../../packages/frontend/frontend-workspace
       '@heloir/ui':
         specifier: workspace:*
         version: link:../../packages/frontend/frontend-ui
@@ -376,6 +379,97 @@ importers:
         version: 5.6.3
 
   packages/frontend/frontend-ui:
+    dependencies:
+      '@internationalized/date':
+        specifier: ^3.5.6
+        version: 3.5.6
+      '@unovis/ts':
+        specifier: 1.5.0-beta.0
+        version: 1.5.0-beta.0
+      '@unovis/vue':
+        specifier: 1.5.0-beta.0
+        version: 1.5.0-beta.0(@unovis/ts@1.5.0-beta.0)(vue@3.5.12(typescript@5.6.3))
+      '@vee-validate/zod':
+        specifier: ^4.14.7
+        version: 4.14.7(vue@3.5.12(typescript@5.6.3))
+      '@vueuse/core':
+        specifier: ^11.2.0
+        version: 11.2.0(vue@3.5.12(typescript@5.6.3))
+      class-variance-authority:
+        specifier: ^0.7.0
+        version: 0.7.0
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
+      embla-carousel-vue:
+        specifier: ^8.3.1
+        version: 8.3.1(vue@3.5.12(typescript@5.6.3))
+      lucide-vue-next:
+        specifier: ^0.456.0
+        version: 0.456.0(vue@3.5.12(typescript@5.6.3))
+      radix-vue:
+        specifier: ^1.9.9
+        version: 1.9.9(vue@3.5.12(typescript@5.6.3))
+      tailwind-merge:
+        specifier: ^2.5.4
+        version: 2.5.4
+      tailwindcss-animate:
+        specifier: ^1.0.7
+        version: 1.0.7(tailwindcss@3.4.14(ts-node@10.9.2(@types/node@22.9.0)(typescript@5.6.3)))
+      v-calendar:
+        specifier: ^3.1.2
+        version: 3.1.2(@popperjs/core@2.11.8)(vue@3.5.12(typescript@5.6.3))
+      vaul-vue:
+        specifier: ^0.2.0
+        version: 0.2.0(radix-vue@1.9.9(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3))
+      vee-validate:
+        specifier: ^4.14.7
+        version: 4.14.7(vue@3.5.12(typescript@5.6.3))
+      vue:
+        specifier: ^3.5.12
+        version: 3.5.12(typescript@5.6.3)
+      vue-sonner:
+        specifier: ^1.2.5
+        version: 1.2.5
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
+    devDependencies:
+      '@heloir/config-tailwind':
+        specifier: workspace:*
+        version: link:../../config/config-tailwind
+      '@heloir/eslint-config':
+        specifier: workspace:*
+        version: link:../../config/config-eslint
+      '@heloir/typescript-config':
+        specifier: workspace:*
+        version: link:../../config/config-typescript
+      '@tsconfig/node18':
+        specifier: ^18.2.4
+        version: 18.2.4
+      autoprefixer:
+        specifier: ^10.4.20
+        version: 10.4.20(postcss@8.4.49)
+      eslint:
+        specifier: ^9.14.0
+        version: 9.14.0(jiti@1.21.6)
+      eslint-plugin-vue:
+        specifier: ^9.31.0
+        version: 9.31.0(eslint@9.14.0(jiti@1.21.6))
+      postcss:
+        specifier: ^8.4.49
+        version: 8.4.49
+      tailwindcss:
+        specifier: ^3.4.14
+        version: 3.4.14(ts-node@10.9.2(@types/node@22.9.0)(typescript@5.6.3))
+      typescript:
+        specifier: 5.6.3
+        version: 5.6.3
+      vue-tsc:
+        specifier: ^2.1.10
+        version: 2.1.10(typescript@5.6.3)
+
+  packages/frontend/frontend-workspace:
     dependencies:
       '@internationalized/date':
         specifier: ^3.5.6
