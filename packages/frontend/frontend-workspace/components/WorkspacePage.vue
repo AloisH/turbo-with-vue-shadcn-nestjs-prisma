@@ -1,23 +1,47 @@
 <script setup lang="ts">
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@heloir/ui/card';
-import { Label } from '@heloir/ui/label';
-import { Input } from '@heloir/ui/input';
-import { Button } from '@heloir/ui/button';
-import { Separator } from '@heloir/ui/separator';
-import { AlertDialog, AlertDialogCancel, AlertDialogAction, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTrigger } from '@heloir/ui/alert-dialog';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@heloir/ui/table';
-import { Edit, Plus, Trash } from 'lucide-vue-next';
-import { onMounted, ref } from 'vue';
-import { WorkspaceDto, WorkspaceService} from "@heloir/frontend-administration-api";
-import axios from 'axios';
+import {
+  WorkspaceDto,
+  WorkspaceService,
+} from "@heloir/frontend-administration-api";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTrigger,
+} from "@heloir/ui/alert-dialog";
+import { Button } from "@heloir/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@heloir/ui/card";
+import { Input } from "@heloir/ui/input";
+import { Label } from "@heloir/ui/label";
+import { Separator } from "@heloir/ui/separator";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@heloir/ui/table";
+import axios from "axios";
+import { Edit, Plus, Trash } from "lucide-vue-next";
+import { onMounted, ref } from "vue";
 
 const workspaces = ref<WorkspaceDto[]>([]);
 const workspaceService = new WorkspaceService(
   axios.create({
     baseURL: "http://localhost:62002",
-  })
+  }),
 );
-
 
 onMounted(async () => {
   await loadWorkspaces();
@@ -38,12 +62,8 @@ async function loadWorkspaces() {
   <div class="wk-m-4">
     <Card>
       <CardHeader>
-        <CardTitle>
-          Workspaces
-        </CardTitle>
-        <CardDescription>
-          Create and edit workspaces
-        </CardDescription>
+        <CardTitle> Workspaces </CardTitle>
+        <CardDescription> Create and edit workspaces </CardDescription>
       </CardHeader>
       <CardContent class="wk-flex wk-flex-col wk-gap-4">
         <form>
@@ -79,14 +99,16 @@ async function loadWorkspaces() {
                   </AlertDialogTrigger>
                   <AlertDialogContent>
                     <AlertDialogHeader>
-                      <AlertDialogHeader>
-                        Delete workspace
-                      </AlertDialogHeader>
-                      <AlertDialogDescription>Are you sure you want to delete this workspace?</AlertDialogDescription>
+                      <AlertDialogHeader> Delete workspace </AlertDialogHeader>
+                      <AlertDialogDescription>
+                        Are you sure you want to delete this workspace?
+                      </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>
                       <AlertDialogCancel>Cancel</AlertDialogCancel>
-                      <AlertDialogAction @click="deleteWorkspace(workspace.id)">Delete</AlertDialogAction>
+                      <AlertDialogAction @click="deleteWorkspace(workspace.id)">
+                        Delete
+                      </AlertDialogAction>
                     </AlertDialogFooter>
                   </AlertDialogContent>
                 </AlertDialog>

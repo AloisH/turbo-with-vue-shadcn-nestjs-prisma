@@ -23,7 +23,7 @@ const forwarded = useForwardProps(delegatedProps);
     :class="
       cn(
         'p-2 flex flex-col items-center text-center gap-2 rounded-md',
-        props.class
+        props.class,
       )
     "
   >

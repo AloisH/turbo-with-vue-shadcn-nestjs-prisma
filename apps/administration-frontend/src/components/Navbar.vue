@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import axios from "axios";
 import {
   WorkspaceService,
   type WorkspaceDto,
@@ -35,18 +34,19 @@ import {
   SidebarRail,
   SidebarTrigger,
 } from "@heloir/ui/sidebar";
+import { useColorMode } from "@vueuse/core";
+import axios from "axios";
 import {
   ChevronsUpDown,
   Frame,
-  Moon,
   LogOut,
   Map,
+  Moon,
   PieChart,
-  Sun,
   Settings,
+  Sun,
 } from "lucide-vue-next";
 import { onMounted, ref } from "vue";
-import { useColorMode } from "@vueuse/core";
 import { useRoute } from "vue-router";
 
 const mode = useColorMode();
@@ -83,7 +83,7 @@ const data = ref({
 const workspaceService = new WorkspaceService(
   axios.create({
     baseURL: "http://localhost:62002",
-  })
+  }),
 );
 
 onMounted(async () => {
@@ -112,7 +112,9 @@ function setWorkspace(workspace: WorkspaceDto) {
                   class="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                 >
                   <Avatar class="h-8 w-8 rounded-lg">
-                    <AvatarFallback class="rounded-lg"> {{ activeWorkspace?.name.at(0)?.toUpperCase() }} </AvatarFallback>
+                    <AvatarFallback class="rounded-lg">
+                      {{ activeWorkspace?.name.at(0)?.toUpperCase() }}
+                    </AvatarFallback>
                   </Avatar>
                   <div class="grid flex-1 text-left text-sm leading-tight">
                     <span class="truncate font-semibold">{{
@@ -141,19 +143,23 @@ function setWorkspace(workspace: WorkspaceDto) {
                   @click="setWorkspace(workspace)"
                 >
                   <Avatar class="h-8 w-8 rounded-lg">
-                    <AvatarFallback class="rounded-lg"> {{ workspace.name.at(0)?.toUpperCase() }} </AvatarFallback>
+                    <AvatarFallback class="rounded-lg">
+                      {{ workspace.name.at(0)?.toUpperCase() }}
+                    </AvatarFallback>
                   </Avatar>
                   {{ workspace.name }}
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <RouterLink :to="{ name: 'Workspace' }">
                   <DropdownMenuItem class="gap-2 p-2">
-                      <div class="flex size-6 items-center justify-center rounded-md border bg-background">
-                        <Settings class="size-4" />
-                      </div>
-                      <div class="font-medium text-muted-foreground">
-                        Edit Workspace
-                      </div>
+                    <div
+                      class="flex size-6 items-center justify-center rounded-md border bg-background"
+                    >
+                      <Settings class="size-4" />
+                    </div>
+                    <div class="font-medium text-muted-foreground">
+                      Edit Workspace
+                    </div>
                   </DropdownMenuItem>
                 </RouterLink>
               </DropdownMenuContent>
@@ -230,7 +236,9 @@ function setWorkspace(workspace: WorkspaceDto) {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                  <DropdownMenuItem @click="mode = mode === 'dark' ? 'light' : 'dark'">
+                  <DropdownMenuItem
+                    @click="mode = mode === 'dark' ? 'light' : 'dark'"
+                  >
                     <Sun v-if="mode === 'dark'" />
                     <Moon v-else />
                     Toggle Theme

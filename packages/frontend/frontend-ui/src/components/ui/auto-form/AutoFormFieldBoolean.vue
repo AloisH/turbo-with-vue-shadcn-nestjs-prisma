@@ -16,7 +16,7 @@ import { beautifyObjectName } from "./utils";
 const props = defineProps<FieldProps>();
 
 const booleanComponent = computed(
-  (): Component => (props.config?.component === "switch" ? Switch : Checkbox)
+  (): Component => (props.config?.component === "switch" ? Switch : Checkbox),
 );
 </script>
 

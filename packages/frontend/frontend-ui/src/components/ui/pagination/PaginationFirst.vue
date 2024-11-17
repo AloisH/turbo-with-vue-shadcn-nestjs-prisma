@@ -9,7 +9,7 @@ const props = withDefaults(
   defineProps<PaginationFirstProps & { class?: HTMLAttributes["class"] }>(),
   {
     asChild: true,
-  }
+  },
 );
 
 const delegatedProps = computed(() => {

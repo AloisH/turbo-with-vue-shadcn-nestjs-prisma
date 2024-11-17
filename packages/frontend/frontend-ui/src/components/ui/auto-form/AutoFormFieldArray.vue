@@ -26,13 +26,13 @@ const props = defineProps<{
 }>();
 
 function isZodArray(
-  item: z.ZodArray<any> | z.ZodDefault<any>
+  item: z.ZodArray<any> | z.ZodDefault<any>,
 ): item is z.ZodArray<any> {
   return item instanceof z.ZodArray;
 }
 
 function isZodDefault(
-  item: z.ZodArray<any> | z.ZodDefault<any>
+  item: z.ZodArray<any> | z.ZodDefault<any>,
 ): item is z.ZodDefault<any> {
   return item instanceof z.ZodDefault;
 }

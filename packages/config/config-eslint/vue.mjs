@@ -1,8 +1,9 @@
-import pluginVue from "eslint-plugin-vue";
 import pluginJs from "@eslint/js";
+import vueTsEslintConfig from "@vue/eslint-config-typescript";
+import eslintPluginPrettier from "eslint-plugin-prettier/recommended";
+import pluginVue from "eslint-plugin-vue";
 import globals from "globals";
 import tseslint from "typescript-eslint";
-import vueTsEslintConfig from "@vue/eslint-config-typescript";
 
 export default [
   {
@@ -43,4 +44,5 @@ export default [
       "unicorn/filename-case": "off",
     },
   },
+  eslintPluginPrettier,
 ];

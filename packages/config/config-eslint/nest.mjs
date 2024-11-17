@@ -3,6 +3,7 @@ import tseslint from "typescript-eslint";
 import pluginJs from "@eslint/js";
 import path from "path";
 import { fileURLToPath } from "url";
+import eslintPluginPrettier from "eslint-plugin-prettier/recommended";
 
 const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
 const __dirname = path.dirname(__filename); // get the name of the directory
@@ -25,6 +26,7 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
+  eslintPluginPrettier,
   {
     languageOptions: {
       globals: {

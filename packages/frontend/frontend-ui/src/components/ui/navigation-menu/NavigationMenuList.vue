@@ -26,7 +26,7 @@ const forwardedProps = useForwardProps(delegatedProps);
     :class="
       cn(
         'group flex flex-1 list-none items-center justify-center gap-x-1',
-        props.class
+        props.class,
       )
     "
   >

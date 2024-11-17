@@ -12,7 +12,7 @@
     "@heloir/typescript-config": "workspace:*",
     "@tsconfig/node18": "^18.2.4",
     "@types/node": "^22.9.0",
-    "eslint": "^8.57.0",
+    "eslint": "^9.14.0",
     "typescript": "^5.6.3"
   },
   "dependencies": {

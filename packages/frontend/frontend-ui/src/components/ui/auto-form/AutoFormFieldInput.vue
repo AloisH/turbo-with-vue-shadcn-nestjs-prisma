@@ -15,7 +15,7 @@ import { beautifyObjectName } from "./utils";
 
 const props = defineProps<FieldProps>();
 const inputComponent = computed(
-  (): Component => (props.config?.component === "textarea" ? Textarea : Input)
+  (): Component => (props.config?.component === "textarea" ? Textarea : Input),
 );
 </script>
 

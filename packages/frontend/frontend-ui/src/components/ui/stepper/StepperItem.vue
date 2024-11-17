@@ -24,7 +24,7 @@ const forwarded = useForwardProps(delegatedProps);
     :class="
       cn(
         'flex items-center gap-2 group data-[disabled]:pointer-events-none',
-        props.class
+        props.class,
       )
     "
   >

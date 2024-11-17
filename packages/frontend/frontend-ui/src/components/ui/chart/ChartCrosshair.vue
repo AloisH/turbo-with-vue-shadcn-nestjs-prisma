@@ -14,7 +14,7 @@ const props = withDefaults(
   }>(),
   {
     colors: () => [],
-  }
+  },
 );
 
 // Use weakmap to store reference to each datapoint for Tooltip
@@ -29,7 +29,7 @@ function template(d: any) {
     ([key, value]) => {
       const legendReference = props.items.find((i) => i.name === key);
       return { ...legendReference, value };
-    }
+    },
   );
   const TooltipComponent = props.customTooltip ?? ChartTooltip;
   createApp(TooltipComponent, {

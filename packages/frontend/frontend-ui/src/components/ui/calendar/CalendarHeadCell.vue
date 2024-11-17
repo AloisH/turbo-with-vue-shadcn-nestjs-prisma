@@ -25,7 +25,7 @@ const forwardedProps = useForwardProps(delegatedProps);
     :class="
       cn(
         'w-9 rounded-md text-[0.8rem] font-normal text-muted-foreground',
-        props.class
+        props.class,
       )
     "
     v-bind="forwardedProps"

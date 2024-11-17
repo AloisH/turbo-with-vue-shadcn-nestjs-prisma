@@ -40,7 +40,7 @@ const df = new DateFormatter("en-US", {
                     cn(
                       'w-full justify-start text-left font-normal',
                       !slotProps.componentField.modelValue &&
-                        'text-muted-foreground'
+                        'text-muted-foreground',
                     )
                   "
                 >
@@ -49,8 +49,8 @@ const df = new DateFormatter("en-US", {
                     slotProps.componentField.modelValue
                       ? df.format(
                           slotProps.componentField.modelValue.toDate(
-                            getLocalTimeZone()
-                          )
+                            getLocalTimeZone(),
+                          ),
                         )
                       : "Pick a date"
                   }}

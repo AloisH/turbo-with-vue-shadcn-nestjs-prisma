@@ -9,7 +9,7 @@ const props = withDefaults(
   defineProps<{ items: BulletLegendItemInterface[] }>(),
   {
     items: () => [],
-  }
+  },
 );
 
 const emits = defineEmits<{
@@ -25,7 +25,7 @@ onMounted(() => {
     const elements = elRef.value?.querySelectorAll(selector);
     const classes = buttonVariants({ variant: "ghost", size: "sm" }).split(" ");
     elements?.forEach((el) =>
-      el.classList.add(...classes, "!inline-flex", "!mr-2")
+      el.classList.add(...classes, "!inline-flex", "!mr-2"),
     );
   });
 });
@@ -38,7 +38,7 @@ function onLegendItemClick(d: BulletLegendItemInterface, i: number) {
     // reset filter
     emits(
       "update:items",
-      props.items.map((item) => ({ ...item, inactive: false }))
+      props.items.map((item) => ({ ...item, inactive: false })),
     );
   } else {
     // apply selection, set other item as inactive
@@ -47,8 +47,8 @@ function onLegendItemClick(d: BulletLegendItemInterface, i: number) {
       props.items.map((item) =>
         item.name === d.name
           ? { ...d, inactive: false }
-          : { ...item, inactive: true }
-      )
+          : { ...item, inactive: true },
+      ),
     );
   }
 }

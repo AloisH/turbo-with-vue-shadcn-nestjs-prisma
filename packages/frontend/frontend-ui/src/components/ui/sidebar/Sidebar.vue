@@ -19,7 +19,7 @@ const props = withDefaults(
     side: "left",
     variant: "sidebar",
     collapsible: "offcanvas",
-  }
+  },
 );
 
 const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
@@ -31,7 +31,7 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
     :class="
       cn(
         'flex h-full w-[--sidebar-width] flex-col bg-sidebar text-sidebar-foreground',
-        props.class
+        props.class,
       )
     "
     v-bind="$attrs"
@@ -77,7 +77,7 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
           'group-data-[side=right]:rotate-180',
           variant === 'floating' || variant === 'inset'
             ? 'group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4))]'
-            : 'group-data-[collapsible=icon]:w-[--sidebar-width-icon]'
+            : 'group-data-[collapsible=icon]:w-[--sidebar-width-icon]',
         )
       "
     />
@@ -92,7 +92,7 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
           variant === 'floating' || variant === 'inset'
             ? 'p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4)_+2px)]'
             : 'group-data-[collapsible=icon]:w-[--sidebar-width-icon] group-data-[side=left]:border-r group-data-[side=right]:border-l',
-          props.class
+          props.class,
         )
       "
       v-bind="$attrs"
