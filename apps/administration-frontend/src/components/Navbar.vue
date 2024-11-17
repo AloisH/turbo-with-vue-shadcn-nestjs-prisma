@@ -29,7 +29,6 @@ import {
   SidebarHeader,
   SidebarInset,
   SidebarMenu,
-  SidebarMenuAction,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
@@ -38,16 +37,12 @@ import {
 } from "@heloir/ui/sidebar";
 import {
   ChevronsUpDown,
-  Folder,
-  Forward,
   Frame,
   Moon,
   LogOut,
   Map,
-  MoreHorizontal,
   PieChart,
   Sun,
-  Trash2,
   Settings,
 } from "lucide-vue-next";
 import { onMounted, ref } from "vue";
@@ -151,14 +146,16 @@ function setWorkspace(workspace: WorkspaceDto) {
                   {{ workspace.name }}
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem class="gap-2 p-2">
-                  <div class="flex size-6 items-center justify-center rounded-md border bg-background">
-                    <Settings class="size-4" />
-                  </div>
-                  <div class="font-medium text-muted-foreground">
-                    Edit Workspace
-                  </div>
-                </DropdownMenuItem>
+                <RouterLink :to="{ name: 'Workspace' }">
+                  <DropdownMenuItem class="gap-2 p-2">
+                      <div class="flex size-6 items-center justify-center rounded-md border bg-background">
+                        <Settings class="size-4" />
+                      </div>
+                      <div class="font-medium text-muted-foreground">
+                        Edit Workspace
+                      </div>
+                  </DropdownMenuItem>
+                </RouterLink>
               </DropdownMenuContent>
             </DropdownMenu>
           </SidebarMenuItem>
