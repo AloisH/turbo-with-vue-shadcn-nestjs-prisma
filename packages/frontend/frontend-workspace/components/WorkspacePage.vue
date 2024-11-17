@@ -4,6 +4,7 @@ import { Label } from '@heloir/ui/label';
 import { Input } from '@heloir/ui/input';
 import { Button } from '@heloir/ui/button';
 import { Separator } from '@heloir/ui/separator';
+import { AlertDialog, AlertDialogCancel, AlertDialogAction, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTrigger } from '@heloir/ui/alert-dialog';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@heloir/ui/table';
 import { Edit, Plus, Trash } from 'lucide-vue-next';
 import { onMounted, ref } from 'vue';
@@ -19,10 +20,18 @@ const workspaceService = new WorkspaceService(
 
 
 onMounted(async () => {
-  const { data } = await workspaceService.getWorkspaces();
-  workspaces.value = data;
+  await loadWorkspaces();
 });
 
+async function deleteWorkspace(id: string) {
+  await workspaceService.deleteWorkspace(id);
+  await loadWorkspaces();
+}
+
+async function loadWorkspaces() {
+  const { data } = await workspaceService.getWorkspaces();
+  workspaces.value = data;
+}
 </script>
 
 <template>
@@ -64,7 +73,23 @@ onMounted(async () => {
                 <Button size="icon">
                   <Edit />
                 </Button>
-                <Button size="icon"><Trash /></Button>
+                <AlertDialog>
+                  <AlertDialogTrigger as-child>
+                    <Button size="icon"><Trash /></Button>
+                  </AlertDialogTrigger>
+                  <AlertDialogContent>
+                    <AlertDialogHeader>
+                      <AlertDialogHeader>
+                        Delete workspace
+                      </AlertDialogHeader>
+                      <AlertDialogDescription>Are you sure you want to delete this workspace?</AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                      <AlertDialogCancel>Cancel</AlertDialogCancel>
+                      <AlertDialogAction @click="deleteWorkspace(workspace.id)">Delete</AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
               </TableCell>
             </TableRow>
           </TableBody>
