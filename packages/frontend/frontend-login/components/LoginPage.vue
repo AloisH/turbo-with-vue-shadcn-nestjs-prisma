@@ -2,11 +2,6 @@
 import { Button } from '@heloir/ui/button';
 import { Input } from '@heloir/ui/input';
 import { Label } from '@heloir/ui/label';
-
-import { useColorMode } from "@vueuse/core";
-
-const mode = useColorMode();
-mode.value = 'dark';
 </script>
 
 <template>

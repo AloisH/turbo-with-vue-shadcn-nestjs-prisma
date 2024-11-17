@@ -4,7 +4,7 @@ import { LoginPage } from "@heloir/frontend-login";
 
 const routes = [
   { path: "/login", component: LoginPage },
-  { path: "/", component: Navbar },
+  { path: "/", component: Navbar, name: "Home" },
 ];
 
 export const router = createRouter({

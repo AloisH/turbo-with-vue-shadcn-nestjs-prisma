@@ -8,10 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@heloir/ui/avatar";
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
   BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
 } from "@heloir/ui/breadcrumb";
 import {
   Collapsible,
@@ -68,10 +65,12 @@ import {
 } from "lucide-vue-next";
 import { onMounted, ref } from "vue";
 import { useColorMode } from "@vueuse/core";
-import { WorkspacePage } from "@heloir/frontend-workspace";
+import { useRoute } from "vue-router";
 
 const mode = useColorMode();
 const workspaces = ref<WorkspaceDto[]>([]);
+
+const route = useRoute();
 
 // This is sample data.
 const data = ref({
@@ -433,21 +432,13 @@ function setWorkspace(workspace: WorkspaceDto) {
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem class="hidden md:block">
-                <BreadcrumbLink href="#">
-                  Building Your Application
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator class="hidden md:block" />
-              <BreadcrumbItem>
-                <BreadcrumbPage>Data Fetching</BreadcrumbPage>
+                {{ route.name }}
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
         </div>
       </header>
       <div class="flex flex-1 flex-col gap-4 p-4 pt-0">
-        <div>Hello world <input type="color" /></div>
-        <WorkspacePage></WorkspacePage>
         <div class="grid auto-rows-min gap-4 md:grid-cols-3">
           <div class="aspect-video rounded-xl bg-muted/50" />
           <div class="aspect-video rounded-xl bg-muted/50" />
