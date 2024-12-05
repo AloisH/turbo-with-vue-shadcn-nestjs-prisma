@@ -48,6 +48,8 @@ import {
 } from "lucide-vue-next";
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
+import TestCombobox from "./TestCombobox.vue";
+import TestTagInput from "./TestTagInput.vue";
 
 const mode = useColorMode();
 const workspaces = ref<WorkspaceDto[]>([]);
@@ -272,6 +274,12 @@ function setWorkspace(workspace: WorkspaceDto) {
           </Breadcrumb>
         </div>
       </header>
+      <div>
+        Hello world!!
+        <TestCombobox />
+        ---
+        <TestTagInput />
+      </div>
       <RouterView />
     </SidebarInset>
   </SidebarProvider>
